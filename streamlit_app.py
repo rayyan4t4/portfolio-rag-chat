@@ -8,7 +8,7 @@ from openai import OpenAI
 from sentence_transformers import SentenceTransformer
 
 EMBED_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
-LLM_MODEL = "nvidia/nemotron-3.5-lightning:free"
+LLM_MODEL = "poolside/laguna-s-2.1:free"
 TOP_K = 3
 
 SYSTEM_PROMPT = (
