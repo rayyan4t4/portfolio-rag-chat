@@ -22,12 +22,20 @@ SYSTEM_PROMPT = (
 @st.cache_resource
 def load_rag():
     text = open("knowledge.md").read()
-    parts = re.split(r"^## ", text, flags=re.M)
-    chunks = []
+    parts = re.split(r"(?m)^(?=#{2,3} )", text)
+    chunks, parent = [], ""
     for p in parts:
         p = p.strip()
-        if p:
-            chunks.append("## " + p if not p.startswith("#") else p)
+        if not p:
+            continue
+        if p.startswith("### "):
+            chunks.append("## %s\n%s" % (parent, p))
+        elif p.startswith("## "):
+            parent = p[3:].split("\n", 1)[0]
+            if "\n" in p and p.split("\n", 1)[1].strip():
+                chunks.append(p)
+        else:
+            chunks.append(p)
     embedder = SentenceTransformer(EMBED_MODEL)
     emb = embedder.encode(chunks, normalize_embeddings=True).astype("float32")
     index = faiss.IndexFlatIP(emb.shape[1])
@@ -45,7 +53,14 @@ def get_client():
 def retrieve(question, chunks, embedder, index):
     q = embedder.encode([question], normalize_embeddings=True).astype("float32")
     _, idx = index.search(q, TOP_K)
-    return [chunks[i] for i in idx[0]]
+    hits = [chunks[i] for i in idx[0]]
+    words = re.findall(r"[a-z]{4,}", question.lower())
+    for c in chunks:
+        head = c.split("\n", 1)[0].lower()
+        if c not in hits and any(w in head for w in words):
+            hits.insert(0, c)
+            break
+    return hits[: TOP_K + 1]
 
 
 def answer(question, chunks, embedder, index, client):

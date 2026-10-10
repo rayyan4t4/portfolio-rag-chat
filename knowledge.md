@@ -14,19 +14,29 @@ He describes himself as "engineer first, researcher by habit." His foundation is
 
 ## Projects
 
-**01 — Conformer Speech Enhancement:** Single-channel noise suppression with a Conformer encoder using complex ratio masking over magnitude and phase. Evaluated with PESQ, STOI and SI-SDR. Trains on free-tier hardware. Built with PyTorch and torchaudio.
+### Lahore Smog Forecast
+24-hour PM2.5 forecasting for Lahore with a 2-layer LSTM (64 hidden units, 72-hour lookback). Trained on 4 years of hourly pollution + weather data (41,832 rows, Open-Meteo/CAMS). Test MAE 17.72 vs persistence baseline 24.20 (27% better) on 15,433 held-out hours. Live Streamlit dashboard. Built with PyTorch and Streamlit.
 
-**02 — PDF AI Authorship Analyzer:** Batch-scores text PDFs with a 0–100 AI-authorship risk score computed from five signals. Runs fully locally so documents never leave the machine. Built with Python, Streamlit and Transformers.
+### Conformer Speech Enhancement
+Single-channel noise suppression with a Conformer encoder using complex ratio masking over magnitude and phase. Evaluated with PESQ, STOI and SI-SDR. Trains on free-tier hardware. Built with PyTorch and torchaudio.
 
-**03 — Fire & Weapon Detection from CCTV:** Team project detecting fire and weapons in live CCTV footage. No dataset existed, so the team built one — around 8,000 frames annotated in CVAT — and reached 0.89 mAP@0.5 with YOLO. Built with YOLO, OpenCV and PyTorch.
+### PDF AI Authorship Analyzer
+Batch-scores text PDFs with a 0–100 AI-authorship risk score computed from five signals. Runs fully locally so documents never leave the machine. Built with Python, Streamlit and Transformers.
 
-**04 — Veterinary RAG Assistant (work in progress):** Retrieval-augmented decision-support assistant over veterinary knowledge. Built with LangChain, FAISS and LLMs.
+### Fire & Weapon Detection from CCTV
+Team project detecting fire and weapons in live CCTV footage. No dataset existed, so the team built one — around 8,000 frames annotated in CVAT — and reached 0.89 mAP@0.5 with YOLO. Built with YOLO, OpenCV and PyTorch.
 
-**05 — LLM + RAG Experiments:** Hands-on notebooks covering embeddings, vector stores, chunking strategies and retrieval evaluation. Built with LlamaIndex and ChromaDB.
+### Veterinary RAG Assistant
+Retrieval-augmented decision-support assistant over veterinary knowledge. Built with LangChain, FAISS and LLMs.
 
-**06 — Word-AI:** An AI task-pane add-in for Microsoft Word — write, edit and format documents with an assistant inside the editor. Built with Python and LLM APIs.
+### LLM + RAG Experiments
+Hands-on notebooks covering embeddings, vector stores, chunking strategies and retrieval evaluation. Built with LlamaIndex and ChromaDB.
 
-**07 — Portfolio RAG Chatbot (this app):** A retrieval-augmented chatbot over Rayyan's own portfolio. Ask it anything about his work, skills and experience. Built with Gradio, sentence-transformers, FAISS and Hugging Face inference.
+### Word-AI
+An AI task-pane add-in for Microsoft Word — write, edit and format documents with an assistant inside the editor. Built with Python and LLM APIs.
+
+### Portfolio RAG Chatbot (this app)
+A retrieval-augmented chatbot over Rayyan's own portfolio. Ask it anything about his work, skills and experience. Built with Streamlit, sentence-transformers, FAISS and an OpenRouter-hosted LLM.
 
 ## Skills
 
