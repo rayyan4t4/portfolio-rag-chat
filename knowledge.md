@@ -14,6 +14,12 @@ He describes himself as "engineer first, researcher by habit." His foundation is
 
 ## Projects
 
+### Ask the Constitution
+RAG chatbot over the Constitution of Pakistan — ask questions in plain language, get answers grounded in the actual articles with citations. Corpus: 323 articles (numbers 1–280 complete) + 5 schedules scraped from pakistani.org; retrieval with all-MiniLM-L6-v2 embeddings + FAISS (768 chunks). Evaluated on 30 hand-written questions with gold article labels: hit-rate@1 0.867, hit-rate@3 0.933, hit-rate@5 1.000. Try it live: https://ask-the-constitution-pakistan-4qnovtlwn9uu6gw5qry8nw.streamlit.app/ (shows retrieved articles with citations; full generated answers need the OpenRouter API key in the app's secrets). Source code: https://github.com/rayyan4t4/ask-the-constitution-pakistan. Built with sentence-transformers, FAISS and Streamlit. Day 3 of his daily ML project series — his first RAG system.
+
+### Roman Urdu Sentiment Analyzer
+Sentiment analysis for Roman Urdu text — TF-IDF + logistic regression trained on 33,619 labeled texts (Positive/Negative/Neutral). Test macro-F1 0.689 against a 0.216 majority-class baseline on 4,151 held-out rows. Try it live: https://roman-urdu-sentiment-analyzer-wgx8edlhcfylauqebaacbb.streamlit.app/ (type any Roman Urdu, get sentiment plus confidence). Source code: https://github.com/rayyan4t4/roman-urdu-sentiment-analyzer. Built with scikit-learn and Streamlit. His first NLP project, day 2 of the daily ML project series.
+
 ### Lahore Smog Forecast
 24-hour PM2.5 forecasting for Lahore with a 2-layer LSTM (64 hidden units, 72-hour lookback). Trained on 4 years of hourly pollution + weather data (41,832 rows, Open-Meteo/CAMS). Test MAE 17.72 vs persistence baseline 24.20 (27% better) on 15,433 held-out hours. Live Streamlit dashboard. Built with PyTorch and Streamlit.
 
