@@ -16,3 +16,7 @@ OPENROUTER_API_KEY = "sk-or-v1-..."
 pip install -r requirements.txt
 streamlit run streamlit_app.py
 ```
+
+---
+
+**Author:** [Rayyan Khan](https://rayyankhan.online) — Machine Learning Engineer, Pakistan
